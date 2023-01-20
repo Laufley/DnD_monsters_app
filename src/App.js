@@ -3,7 +3,7 @@ import MonstersBox from './Containers/MonstersBox'
 
 function App() {
   return (
-    <MonstersBox />
+    <MonstersBox/>
   );
 }
 
