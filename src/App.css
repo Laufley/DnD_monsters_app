@@ -42,6 +42,7 @@ body {
   background-image: url('red.png');
   width: 64%;
   border-radius: 20%;
+  cursor: pointer;
 }
 
 .monster-details {
@@ -102,17 +103,28 @@ grid-area: image;
   justify-content: center;
   margin-top: 10%;
   margin-left: 15%;
+  border-radius: 3px;
+  cursor: pointer;
+  border-color: white;
 }
 
 .button-next {
-  width: fit-content%;
+  width: 20%;
   height:fit-content;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  border-radius: 3px;
+  border-color: white;
+  margin-left: 1%;
+}
+
+.button-search {
+  cursor: pointer;
 }
 
 .input {
-  margin-left: 2%;
+  margin-left: 1%;
 }
 
 

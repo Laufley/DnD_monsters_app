@@ -76,8 +76,8 @@ const MonstersBox = () => {
             <MonstersList monsters={paginatedMonsters} onMonsterClicked={onMonsterClicked}/>
             
             <div className='.button-container '>
-            <button className='button-previous' onClick={handlePreviousPage}>Previous page</button>
-            <button className='button-next' onClick={handleNextPage}>Next Page</button>
+            <button className='button-previous' onClick={handlePreviousPage}> « Previous page</button>
+            <button className='button-next' onClick={handleNextPage}>Next Page »</button>
             </div>
 
             <MonsterDetails details={monsterClicked}/>
