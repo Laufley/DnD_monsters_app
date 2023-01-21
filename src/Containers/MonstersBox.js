@@ -50,7 +50,7 @@ const MonstersBox = () => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        const filteredMonsters = monsters.filter((monster) => searchValue == monster.name)      
+        const filteredMonsters = monsters.filter((monster) => searchValue.toLowerCase() == monster.name.toLowerCase())      
         if(filteredMonsters.length > 0){
         fetch('https://www.dnd5eapi.co' + filteredMonsters[0].url)
         .then(response => response.json())

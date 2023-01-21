@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const MonsterItem = ({monster, onMonsterClicked}) => {
 
     const handleClick = () => {

@@ -1,8 +1,10 @@
 import React from 'react'
+import dummy from '../dummy.jpeg'
 
 const MonsterDetails = ({details = {}}) => {  // setting it to an empty object so that the Details section renders empty
 
     const imgLink = `https://www.dnd5eapi.co${details.image}`
+    const backupImage = dummy
 
 
     return ( 
@@ -17,18 +19,17 @@ const MonsterDetails = ({details = {}}) => {  // setting it to an empty object s
                         <li><strong>Size: </strong>{details.size} </li>
                         <li><strong>Stats:</strong>  
                             <ul>
-                                <li><strong>Strength:</strong>{details.strength}</li>
-                                <li><strong>Dexterity:</strong>{details.dexterity}</li>
-                                <li><strong>Constitution:</strong>{details.constitution}</li>
-                                <li><strong>Intelligence:</strong>{details.intelligence}</li>
-                                <li><strong>Wisdom: </strong>{details.wisdom}</li>
-                                <li><strong>Charisma:</strong>{details.charisma}</li>
+                                <li><strong>Strength:</strong> {details.strength}</li>
+                                <li><strong>Dexterity:</strong> {details.dexterity}</li>
+                                <li><strong>Constitution:</strong> {details.constitution}</li>
+                                <li><strong>Intelligence:</strong> {details.intelligence}</li>
+                                <li><strong>Wisdom: </strong> {details.wisdom}</li>
+                                <li><strong>Charisma:</strong> {details.charisma}</li>
                             </ul>
                         </li>
                     </ul>
-                    <img className='image' src={imgLink}  height="300px" width="300px"/>
-                </div>
-                
+                    <img className='image' src={details.image ? `https://www.dnd5eapi.co${details.image}` : (backupImage)} height="300px" width="300px"/>
+                </div>   
             </>
         }
         </div>
