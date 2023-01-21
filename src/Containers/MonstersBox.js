@@ -7,7 +7,16 @@ const MonstersBox = () => {
     const [monsters, setMonsters] = useState([]);
     const [monsterClicked, setMonsterClicked] = useState('')
 
-    
+    const [currentPage, setCurrentPage] = useState(1)
+    const monstersPerPage = 20
+
+
+    const postsIndex = (currentPage * monstersPerPage) - monstersPerPage // this indext will tell the next function the number posts we want to load on the next page. first time i run, this result is 0. On the second run, the pageNumber is 2 which makes the restult catch the next 20 items
+    const paginatedMonsters = monsters.slice(postsIndex, monstersPerPage + postsIndex)// this grabs the posts to show per page. It starts at the index, and then moves up to 20 posts which is the postsPerPage. Splice returns a list
+                                                                                        // had to use slice instead of splice because splice modifies the original and slice creates a copy of the original array. using splice gave 2 of errors!
+                                                                                        // 1. Return button triggered the NEXT ITEMS button instead. Reasoning: with splice, it removes the selected items. SO the items were removed from the original list and that's why the return button didnt work and only moved the list forward.
+                                                                                        // 2. Clicking on any monster triggered Onclick details AND also next page button. Reasoning: When clicked on next button which uses splice, the date in splice has been removed from the original array(it's been modified). So. when the DOM is reloaded, the content it's trying to pull doesnt exist from the original array anymore and the first items are the ones that have not been removed yet. That's why it has the same effect as the Next button click.
+
     useEffect(() => {
         fetch('https://www.dnd5eapi.co/api/monsters')
         .then(response => response.json())
@@ -15,14 +24,31 @@ const MonstersBox = () => {
     }, []);
 
     const onMonsterClicked = (monster) => {
+        console.log("It tickles!")
         setMonsterClicked(monster)
     }
 
+    const handleNextPage = () => {
+        console.log("tickles next")
+        setCurrentPage(currentPage + 1)
+            
+    }
 
+    const handlePreviousPage = () => {
+        console.log("tickles previous")
+        if (currentPage === 1) {
+            return
+        }
+        else {
+            setCurrentPage(currentPage - 1)
+        }
+    }
 
     return (
         <div>
-    <MonstersList monsters={monsters} onMonsterClicked={onMonsterClicked}/>
+    <MonstersList monsters={paginatedMonsters} onMonsterClicked={onMonsterClicked}/>
+    <button onClick={handlePreviousPage}>Previous page</button>
+    <button onClick={handleNextPage}>Next Page</button>
     <MonsterDetails details={monsterClicked}/>
 
     </div>
@@ -33,3 +59,11 @@ const MonstersBox = () => {
 }
 export default MonstersBox
 
+
+
+  //PAGINATION//
+    //need button handle previous: needs current page & condictional logic to reduce
+    //need button handle next: needs current page & conditional logic to increase
+    //determina how many posts per page
+    //determine how many posts next page will start loading from and stop loading from (splice)
+    //connect the posts to the retrieved API data (monsters)
