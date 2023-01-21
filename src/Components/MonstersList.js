@@ -10,7 +10,7 @@ const MonstersList = ({monsters, onMonsterClicked}) => {
     })
 
     return (
-        <div>
+        <div className='monster-list'>
             <ul>
             {listOfMonsters}
             </ul>

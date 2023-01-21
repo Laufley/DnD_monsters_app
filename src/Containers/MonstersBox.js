@@ -60,19 +60,29 @@ const MonstersBox = () => {
 
 
     return (
-        <div>
+        <>
+        <div className='header'>
             <h1>D&D Monster archives</h1>
+        </div>
+        
+        <div className='main-container'>
             <form onSubmit={handleSubmit}>
                 <label>Search by Name</label>
                 <input type="text" onChange={handleForm} value={searchValue}></input>
                 <button type='submit'>Search</button>
             </form>
+
             <MonstersList monsters={paginatedMonsters} onMonsterClicked={onMonsterClicked}/>
             <button onClick={handlePreviousPage}>Previous page</button>
             <button onClick={handleNextPage}>Next Page</button>
-            <MonsterDetails details={monsterClicked}/>
 
-    </div>
+            <MonsterDetails details={monsterClicked}/>
+        </div>
+
+        <div className='footer'>
+            <h5>project: API fetching D&D samples for REACT app</h5>
+        </div>
+        </>
     )    
 }
 export default MonstersBox
