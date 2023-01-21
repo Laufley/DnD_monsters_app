@@ -43,6 +43,7 @@ body {
   width: 64%;
   border-radius: 20%;
   cursor: pointer;
+  color: rgb(219, 196, 166);
 }
 
 .monster-details {
@@ -51,19 +52,39 @@ body {
   height: 100%;
   display: grid;
   grid-template-areas: 
-  'details image'
-  'details image';
+  'details details';
   margin-right: 10%;
 }
 
 .image {
 display: flex;
 grid-area: image;
+border-style: double;
+border-width: 5px;
+border-color: brown;
+margin-right: 5%;
+}
+
+.stats {
+  display:flex;
+  grid-area: stats;
+  list-style: none;
+  flex-direction: column;
+  gap: 15px;
+  align-items: left;
+  justify-content: center;
 }
 
 .details {
   display: flex;
   grid-area: details;
+  background-color: rgba(24, 23, 23, 0.957);
+  border-radius: 10%;
+  padding: 5%;
+  width: 90%;
+  display: grid;
+  grid-template-areas: 
+  'stats image';
 }
 
 .footer {
@@ -106,6 +127,12 @@ grid-area: image;
   border-radius: 3px;
   cursor: pointer;
   border-color: white;
+  border-style: outset;
+  background-color: rgb(250, 238, 223);
+}
+
+.button-previous:hover{
+  border-style: inset;
 }
 
 .button-next {
@@ -116,11 +143,31 @@ grid-area: image;
   cursor: pointer;
   border-radius: 3px;
   border-color: white;
+  border-style: outset;
   margin-left: 1%;
+  background-color: antiquewhite;
+}
+
+.button-next:hover{
+  border-style: inset;
 }
 
 .button-search {
   cursor: pointer;
+  border-style: outset;
+  background-color: grey;
+  border-radius: 3px;
+  border-color: rgb(85, 85, 85);
+  margin-left: 0.5%;
+  height: 108%;
+  width: 6%;
+  color: black
+}
+
+.button-search:hover {
+  cursor: pointer;
+  border-style: inset;
+  background-color: rgb(84, 84, 84);
 }
 
 .input {
