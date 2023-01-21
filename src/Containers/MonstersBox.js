@@ -6,9 +6,12 @@ const MonstersBox = () => {
 
     const [monsters, setMonsters] = useState([]);
     const [monsterClicked, setMonsterClicked] = useState('')
+    const [searchValue, setSearchValue] = useState("")
 
-    const [currentPage, setCurrentPage] = useState(1)
+
+    const [currentPage, setCurrentPage] = useState(1)  // for pagination
     const monstersPerPage = 20
+
 
 
     const postsIndex = (currentPage * monstersPerPage) - monstersPerPage // this indext will tell the next function the number posts we want to load on the next page. first time i run, this result is 0. On the second run, the pageNumber is 2 which makes the restult catch the next 20 items
@@ -16,7 +19,6 @@ const MonstersBox = () => {
                                                                                         // had to use slice instead of splice because splice modifies the original and slice creates a copy of the original array. using splice gave 2 of errors!
                                                                                         // 1. Return button triggered the NEXT ITEMS button instead. Reasoning: with splice, it removes the selected items. SO the items were removed from the original list and that's why the return button didnt work and only moved the list forward.
                                                                                         // 2. Clicking on any monster triggered Onclick details AND also next page button. Reasoning: When clicked on next button which uses splice, the date in splice has been removed from the original array(it's been modified). So. when the DOM is reloaded, the content it's trying to pull doesnt exist from the original array anymore and the first items are the ones that have not been removed yet. That's why it has the same effect as the Next button click.
-
     useEffect(() => {
         fetch('https://www.dnd5eapi.co/api/monsters')
         .then(response => response.json())
@@ -29,13 +31,11 @@ const MonstersBox = () => {
     }
 
     const handleNextPage = () => {
-        console.log("tickles next")
         setCurrentPage(currentPage + 1)
             
     }
 
     const handlePreviousPage = () => {
-        console.log("tickles previous")
         if (currentPage === 1) {
             return
         }
@@ -44,18 +44,36 @@ const MonstersBox = () => {
         }
     }
 
+    const handleForm = (evt) => {
+        setSearchValue(evt.target.value)
+    }
+
+    const handleSubmit = (evt) => {
+        evt.preventDefault()
+        const filteredMonsters = monsters.filter((monster) => searchValue == monster.name)      
+        if(filteredMonsters.length > 0){
+        fetch('https://www.dnd5eapi.co' + filteredMonsters[0].url)
+        .then(response => response.json())
+        .then(data => setMonsterClicked(data))
+    }
+    }
+
+
     return (
         <div>
-    <MonstersList monsters={paginatedMonsters} onMonsterClicked={onMonsterClicked}/>
-    <button onClick={handlePreviousPage}>Previous page</button>
-    <button onClick={handleNextPage}>Next Page</button>
-    <MonsterDetails details={monsterClicked}/>
+            <h1>D&D Monster archives</h1>
+            <form onSubmit={handleSubmit}>
+                <label>Search by Name</label>
+                <input type="text" onChange={handleForm} value={searchValue}></input>
+                <button type='submit'>Search</button>
+            </form>
+            <MonstersList monsters={paginatedMonsters} onMonsterClicked={onMonsterClicked}/>
+            <button onClick={handlePreviousPage}>Previous page</button>
+            <button onClick={handleNextPage}>Next Page</button>
+            <MonsterDetails details={monsterClicked}/>
 
     </div>
-    )
-
-
-    
+    )    
 }
 export default MonstersBox
 

@@ -6,7 +6,6 @@ const MonsterItem = ({monster, onMonsterClicked}) => {
         fetch('https://www.dnd5eapi.co' + monster.url)
         .then(response => response.json())
         .then(data => onMonsterClicked(data))
-        
     }
     return (
         <li onClick={handleClick}>{monster.name}</li>

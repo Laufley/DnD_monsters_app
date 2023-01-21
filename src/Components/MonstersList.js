@@ -5,7 +5,7 @@ const MonstersList = ({monsters, onMonsterClicked}) => {
 
     const listOfMonsters = monsters.map((monster, index) => {
 
-    return <MonsterItem key={index} monster={monster} onMonsterClicked={onMonsterClicked}  ></MonsterItem>
+    return <MonsterItem key={index} monster={monster} onMonsterClicked={onMonsterClicked}></MonsterItem>
 
     })
 
