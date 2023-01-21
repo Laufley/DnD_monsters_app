@@ -1,5 +1,6 @@
 body {
-  background-color: black;
+  background-image: url('dragon.jpeg');
+  background-size:contain;
   color: aliceblue;
 }
 
@@ -8,6 +9,7 @@ body {
   display: flex;
   grid-area: header;
   height: 100%;
+  margin-left: 10%;
 }
 
 .search-by-name {
@@ -15,6 +17,7 @@ body {
   grid-area: search-by-name;
   margin-top: 2%;
   margin-left: 2%;
+  font-weight: bold;
 }
 
 .main-container {
@@ -33,6 +36,12 @@ body {
   display: flex;
   height: 100%;
   margin-top: 5%;
+  margin-left: 5%;
+  text-align: left;
+  list-style-type: none;
+  background-image: url('red.png');
+  width: 64%;
+  border-radius: 20%;
 }
 
 .monster-details {
@@ -43,6 +52,7 @@ body {
   grid-template-areas: 
   'details image'
   'details image';
+  margin-right: 10%;
 }
 
 .image {
@@ -62,6 +72,8 @@ grid-area: image;
   margin-left: 30%;
   margin-bottom: 20%;
   align-items: center;
+  font-weight: bold;
+  color: brown;
 }
 
 .body{
@@ -88,12 +100,12 @@ grid-area: image;
   height: fit-content;
   align-items: center;
   justify-content: center;
-  margin-top: 5%;
-  margin-left: 5%;
+  margin-top: 10%;
+  margin-left: 15%;
 }
 
 .button-next {
-  width: 27%;
+  width: fit-content%;
   height:fit-content;
   align-items: center;
   justify-content: center;

@@ -62,7 +62,7 @@ const MonstersBox = () => {
     return (
         <>
         <div className='header'>
-            <h1>D&D Monster archives</h1>
+            <h1>🔥 D&D Monster archives</h1>
         </div>
         
         <div className='main-container'>
@@ -83,9 +83,7 @@ const MonstersBox = () => {
             <MonsterDetails details={monsterClicked}/>
         </div>
 
-        <div className='footer'>
-            <h5>project: API fetching D&D samples for REACT app</h5>
-        </div>
+        <div className='footer'> project: API fetching D&D samples for REACT app</div>
         </>
     )    
 }

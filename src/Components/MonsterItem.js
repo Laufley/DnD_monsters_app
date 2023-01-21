@@ -8,7 +8,9 @@ const MonsterItem = ({monster, onMonsterClicked}) => {
         .then(data => onMonsterClicked(data))
     }
     return (
-        <li onClick={handleClick}>{monster.name}</li>
+        <ul>
+            <li onClick={handleClick}>{monster.name}</li>
+        </ul>
     )
 }
 
