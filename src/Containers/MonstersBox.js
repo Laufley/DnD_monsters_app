@@ -66,15 +66,19 @@ const MonstersBox = () => {
         </div>
         
         <div className='main-container'>
-            <form onSubmit={handleSubmit}>
-                <label>Search by Name</label>
-                <input type="text" onChange={handleForm} value={searchValue}></input>
-                <button type='submit'>Search</button>
+
+            <form className='search-by-name' onSubmit={handleSubmit}>
+                <label>Search by Name </label>
+                <input className='input' type="text" onChange={handleForm} value={searchValue}></input>
+                <button className='button-search' type='submit'>Search</button>
             </form>
 
             <MonstersList monsters={paginatedMonsters} onMonsterClicked={onMonsterClicked}/>
-            <button onClick={handlePreviousPage}>Previous page</button>
-            <button onClick={handleNextPage}>Next Page</button>
+            
+            <div className='.button-container '>
+            <button className='button-previous' onClick={handlePreviousPage}>Previous page</button>
+            <button className='button-next' onClick={handleNextPage}>Next Page</button>
+            </div>
 
             <MonsterDetails details={monsterClicked}/>
         </div>
