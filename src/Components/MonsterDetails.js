@@ -9,7 +9,7 @@ const MonsterDetails = ({details = {}}) => {  // setting it to an empty object s
 
     return ( 
         <div className='monster-details'> 
-            {details && details.name &&  // had to add 2 logical conditions (because just for null and undefined wasn't enough))
+            {details && details.name &&  // had to add 2 logical conditions to make the details section start off empty (because just for null and undefined wasn't enough))
             <>
                 <div className='details'>
                     <ul className='stats'>

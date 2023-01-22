@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import MonsterDetails from '../Components/MonsterDetails';
 import MonstersList from '../Components/MonstersList';
+import Music from '../Components/Music';
+import music from '../music.jpeg'
 
 const MonstersBox = () => {
 
@@ -58,11 +60,11 @@ const MonstersBox = () => {
     }
     }
 
-
     return (
         <>
         <div className='header'>
             <h1>🔥 D&D Monster archives</h1>
+            <Music></Music>
         </div>
         
         <div className='main-container'>

@@ -176,5 +176,11 @@ margin-right: 5%;
   margin-left: 1%;
 }
 
+.music-click {
+  margin-left: 50%;
+  margin-top: 2%;
+  cursor: pointer;
+}
+
 
 
