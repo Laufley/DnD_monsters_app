@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react'
 import MonsterDetails from '../Components/MonsterDetails';
 import MonstersList from '../Components/MonstersList';
 import Music from '../Components/Music';
-import music from '../music.jpeg'
+import musicItem1 from '../ancient-wind-112528.mp3'
+import musicItem2 from '../electronic-rock-king-around-here-15045.mp3'
 
 const MonstersBox = () => {
+
 
     const [monsters, setMonsters] = useState([]);
     const [monsterClicked, setMonsterClicked] = useState('')
@@ -64,7 +66,10 @@ const MonstersBox = () => {
         <>
         <div className='header'>
             <h1>🔥 D&D Monster archives</h1>
-            <Music></Music>
+            <div className='music-click'>
+                <Music musicItem={musicItem1} ></Music>
+                <Music musicItem={musicItem2}></Music>
+            </div>
         </div>
         
         <div className='main-container'>

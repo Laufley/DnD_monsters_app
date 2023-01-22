@@ -180,6 +180,7 @@ margin-right: 5%;
   margin-left: 50%;
   margin-top: 2%;
   cursor: pointer;
+  display: flex;
 }
 
 
